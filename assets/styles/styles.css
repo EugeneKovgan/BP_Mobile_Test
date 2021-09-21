@@ -1,0 +1,248 @@
+* {
+  box-sizing: border-box;
+  font-family: "Source Sans Pro";
+  color: #ffffff;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.banner {
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+}
+
+.banner img {
+  position: absolute;
+  width: 100%;
+}
+.banner-wrapper {
+  position: absolute;
+  width: 100%;
+}
+
+.banner__header-item img {
+  margin-top: 8px;
+  width: 24px;
+  height: 24px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.banner__header-item-descriptions {
+  font-size: 13px;
+  line-height: 41px;
+  letter-spacing: -0.216667px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.banner__header-items {
+  width: 100%;
+  padding: 0 20px;
+  top: 35px;
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+}
+
+.banner__logo {
+  top: 200px;
+  padding: 0 44px;
+  position: absolute;
+  text-align: center;
+}
+
+.banner__logo h1 {
+  font-size: 36px;
+}
+.banner__logo-description-items {
+  position: relative;
+}
+.banner__logo-description-item {
+  margin-top: 10px;
+}
+
+.banner__logo-description-item img {
+  left: -85px;
+}
+
+.logo-description-item-1 {
+  width: 26px;
+  height: 15px;
+}
+.logo-description-item-2 {
+  width: 20px;
+  height: 22px;
+}
+.logo-description-item-3 {
+  width: 22px;
+  height: 22px;
+}
+
+.banner__logo-description-item span {
+  text-align: left;
+  display: flex;
+  padding-left: 80px;
+  font-size: 17px;
+}
+
+.price-rate-inner {
+  top: 440px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  padding: 0 39px;
+}
+.price-rate__first,
+.price-rate__second {
+  text-align: center;
+  position: relative;
+}
+
+.price-rate__block {
+  width: 131px;
+  height: 162px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: transform 0.2s;
+  opacity: 0.5;
+}
+
+.price-rate__block:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+.price-rate__first {
+  background-image: url(../svg/shape-1.svg);
+}
+
+.price-rate__second {
+  background-image: url(../svg/shape-2.svg);
+}
+
+.price-rate__title {
+  margin-top: 23px;
+  font-family: SFProDisplay;
+  font-size: 18.7px;
+  line-height: 22px;
+}
+.price-rate__price-big {
+  margin-top: 18px;
+  font-family: SFProDisplay;
+  font-size: 24px;
+  line-height: 15px;
+}
+.price-rate__price-big-plus {
+  font-size: 15.4px;
+}
+.price-rate__price-description {
+  margin-top: 10px;
+  font-family: SFProDisplay;
+  font-size: 15.4px;
+  line-height: 18px;
+  text-transform: uppercase;
+  background-color: #495795;
+  width: 137px;
+  height: 20px;
+  position: absolute;
+  left: -3px;
+}
+
+.price-rate__price-little {
+  margin-top: 40px;
+  font-family: SFProDisplay;
+  font-size: 12px;
+  line-height: 14px;
+}
+
+.price-rate__price-point {
+  position: absolute;
+  width: 34px;
+  height: 34px;
+  background-color: #db0000;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: SFProDisplay;
+  font-size: 12px;
+  line-height: 12px;
+  top: -2.5px;
+  right: -2.5px;
+}
+.button_submit {
+  position: absolute;
+  top: 652px;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%);
+}
+.btn {
+  background: linear-gradient(270deg, #1987ff 0%, #19ccff 100%);
+  border-radius: 30px;
+  width: 280px;
+  height: 54px;
+}
+.footer {
+  text-align: center;
+  margin-top: 577px;
+}
+.footer__title {
+  top: 727px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 11px;
+  line-height: 13px;
+  opacity: 0.5;
+}
+
+.footer__content-inner {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 15px;
+}
+.footer__content {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 11px;
+  line-height: 13px;
+  text-decoration-line: underline;
+  color: #bdc0d0;
+}
+
+.footer__home-indicator {
+  width: 133px;
+  height: 2px;
+  background: #ffffff;
+  margin: 0 auto;
+  margin-top: 35px;
+  border-radius: 100px;
+}
+
+@media only screen and (max-height: 812px) {
+  .footer__home-indicator {
+    margin-top: 8px;
+  }
+  .price-rate-inner {
+    top: 450px;
+  }
+  .banner__logo {
+    top: 217px;
+  }
+
+  .button_submit {
+    top: 662px;
+  }
+}
+
+@media only screen and (max-height: 736px) {
+}
