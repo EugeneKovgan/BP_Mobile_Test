@@ -1,6 +1,16 @@
+@font-face {
+  font-family: "SFProText";
+  src: url("../../assets/fonts/FontsFree-Net-SFProText-Regular.ttf");
+}
+
+@font-face {
+  font-family: "SFProDisplay";
+  src: url("../../Assets/Fonts/FontsFree-Net-SFProDisplay-Regular.ttf");
+}
+
 * {
   box-sizing: border-box;
-  font-family: "Source Sans Pro";
+  font-family: "SFProDisplay";
   color: #ffffff;
 }
 
@@ -15,12 +25,16 @@ a {
 .banner {
   margin: 0 auto;
   width: 100%;
+  height: 100vh;
   position: relative;
+  max-width: 414px;
+  overflow: hidden;
 }
 
-.banner img {
+.banner .bg-img {
   position: absolute;
   width: 100%;
+  background-size: cover;
 }
 .banner-wrapper {
   position: absolute;
@@ -52,7 +66,7 @@ a {
 
 .banner__logo {
   top: 200px;
-  padding: 0 44px;
+  padding: 0 46px;
   position: absolute;
   text-align: center;
 }
@@ -63,12 +77,14 @@ a {
 .banner__logo-description-items {
   position: relative;
 }
+
 .banner__logo-description-item {
+  display: flex;
   margin-top: 10px;
 }
 
 .banner__logo-description-item img {
-  left: -85px;
+  margin-left: 55px;
 }
 
 .logo-description-item-1 {
@@ -76,23 +92,23 @@ a {
   height: 15px;
 }
 .logo-description-item-2 {
-  width: 20px;
+  width: 26px;
   height: 22px;
 }
 .logo-description-item-3 {
-  width: 22px;
+  width: 26px;
   height: 22px;
 }
 
 .banner__logo-description-item span {
-  text-align: left;
+  font-family: SFProText;
   display: flex;
-  padding-left: 80px;
+  padding-left: 8px;
   font-size: 17px;
 }
 
 .price-rate-inner {
-  top: 440px;
+  top: 495px;
   display: flex;
   justify-content: space-between;
   position: relative;
@@ -179,7 +195,7 @@ a {
 }
 .button_submit {
   position: absolute;
-  top: 652px;
+  top: 680px;
   left: 50%;
   margin-right: -50%;
   transform: translate(-50%);
@@ -192,10 +208,10 @@ a {
 }
 .footer {
   text-align: center;
-  margin-top: 577px;
+  margin-top: 585px;
 }
+
 .footer__title {
-  top: 727px;
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
@@ -207,7 +223,7 @@ a {
 .footer__content-inner {
   display: flex;
   justify-content: space-between;
-  padding: 16px 15px;
+  padding: 23px 25px;
 }
 .footer__content {
   font-family: Roboto;
@@ -221,28 +237,128 @@ a {
 
 .footer__home-indicator {
   width: 133px;
-  height: 2px;
+  height: 5px;
   background: #ffffff;
   margin: 0 auto;
-  margin-top: 35px;
+  margin-top: 25px;
   border-radius: 100px;
+  margin-top: 11px;
 }
 
 @media only screen and (max-height: 812px) {
   .footer__home-indicator {
-    margin-top: 8px;
   }
   .price-rate-inner {
-    top: 450px;
+    top: 470px;
   }
   .banner__logo {
-    top: 217px;
+    top: 195px;
+    padding: 0 39px;
+  }
+  .banner__logo-description-item span {
+    padding-left: 8px;
   }
 
   .button_submit {
-    top: 662px;
+    top: 655px;
+  }
+  .footer {
+    margin-top: 555px;
   }
 }
 
-@media only screen and (max-height: 736px) {
+@media screen and (max-height: 736px) {
+  .banner__header-items {
+    top: 25px;
+  }
+  .banner__logo {
+    top: 160px;
+  }
+  .banner__logo-desription {
+    margin-top: -5px;
+  }
+  .price-rate-inner {
+    top: 405px;
+    padding: 0px 50px;
+  }
+
+  .footer__content-inner {
+    padding-top: 6px;
+  }
+  .button_submit {
+    top: 595px;
+  }
+  .footer {
+    margin-top: 495px;
+  }
+}
+
+@media screen and (max-height: 667px) {
+  .banner__header-items {
+    top: 20px;
+  }
+  .banner__logo-desription {
+    margin-top: -5px;
+  }
+  .banner__logo-description-item {
+    margin-top: 5px;
+  }
+  .price-rate-inner {
+    top: 360px;
+    padding: 0 39px;
+  }
+  .button_submit {
+    top: 545px;
+  }
+  .footer {
+    margin-top: 442px;
+  }
+
+  .footer__content-inner {
+    padding: 8px 25px;
+  }
+}
+
+@media screen and (max-height: 568px) {
+  .banner__header-items {
+    top: 15px;
+  }
+  .banner__logo {
+    top: 90px;
+    padding: 0px 41px;
+  }
+  .banner__logo h1 {
+    font-size: 28px;
+  }
+  .banner__logo-desription {
+    margin-top: -5px;
+  }
+  .banner__logo-description-item span {
+    font-size: 14px;
+  }
+  .banner__logo-description-item span {
+    padding-left: 20px;
+  }
+  .banner__logo-description-item {
+    margin-top: 5px;
+  }
+  .banner__logo-description-item img {
+    margin-left: 40px;
+  }
+  .price-rate-inner {
+    top: 270px;
+    padding: 5 30px;
+  }
+
+  .price-rate__block {
+    width: 111px;
+    height: 142px;
+  }
+
+  .button_submit {
+    top: 445px;
+  }
+  .footer {
+    margin-top: 365px;
+  }
 }
