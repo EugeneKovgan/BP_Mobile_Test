@@ -31,12 +31,12 @@ let bannerLogoDescriptionItems = document.querySelector(
 // ======================    get languages, change and add styles class
 // let currentLocation = "zh";
 let currentLocation =
-  window.navigator.language.substr(0, 2) ??
-  window.navigator.systemLanguage.substr(0, 2) ??
-  window.navigator.userLanguage.substr(0, 2) ??
+  window.navigator.language ??
+  window.navigator.systemLanguage ??
+  window.navigator.userLanguage ??
   "en";
 
-console.log("1 - " + window.navigator.language);
+console.log("1 - " + window.navigator.language.substr(0, 2));
 console.log("2 - " + window.navigator.systemLanguage);
 console.log("3 - " + window.navigator.userLanguage);
 console.log("4 - " + window.navigator.geolocation.geolocationFailure);
@@ -45,7 +45,7 @@ console.log("4 - " + window.navigator.geolocation.geolocationFailure);
 
 let urlLang = window.location.href;
 console.log(`your language from URL is- ${urlLang}`);
-console.log(`your language from OS is - ${currentLocation}`);
+console.log(`your language (currentLocation) from OS is - ${currentLocation}`);
 
 if (currentLocation === "es") {
   bannerLogoDescriptionItems.classList.add("--es");
@@ -81,8 +81,11 @@ if (currentLocation === "zh") {
 
 // ======================    get language pack
 async function getTranslation(lang) {
-  let langPack = await fetch(`../../assets/localizations/${lang}.json`);
+  let langPack = await fetch(`../localizations/${lang}.json`);
   let data = await langPack.json();
+
+  console.log(`currentLocation ${currentLocation} === lang ${lang} `);
+
   return data;
 }
 
