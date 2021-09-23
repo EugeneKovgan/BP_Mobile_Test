@@ -81,11 +81,10 @@ if (currentLocation === "zh") {
 
 // ======================    get language pack
 async function getTranslation(lang) {
-  let langPack = await fetch(`../localizations/${lang}.json`);
+  let langPack = await fetch(`../assets/localizations/${lang}.json`);
   let data = await langPack.json();
 
   console.log(`currentLocation ${currentLocation} === lang ${lang} `);
-
   return data;
 }
 
