@@ -29,23 +29,32 @@ let bannerLogoDescriptionItems = document.querySelector(
 );
 
 // ======================    get languages, change and add styles class
+
 // let currentLocation = "zh";
+// let arrLang = ["en", "es", "fr", "ja", "nl", "ru", "zh"];
+
+let getLangFromUrl = window.location.href.split("?lang");
+let urlLang;
+if (getLangFromUrl.length > 1) {
+  urlLang = getLangFromUrl[getLangFromUrl.length - 1].slice(1);
+}
+
+// ======================    possible languages from OS
+// let possibleLanguages = window.navigator.languages
+//   .join(", ")
+//   .toLocaleLowerCase();
+// console.log(`possible languages from OS - ${possibleLanguages}`);
+// ======================
+
 let currentLocation =
+  urlLang ??
   window.navigator.language ??
   window.navigator.systemLanguage ??
   window.navigator.userLanguage ??
   "en";
 
-console.log("1 - " + window.navigator.language.substr(0, 2));
-console.log("2 - " + window.navigator.systemLanguage);
-console.log("3 - " + window.navigator.userLanguage);
-console.log("4 - " + window.navigator.geolocation.geolocationFailure);
-
-// let arrLang = ["en", "es", "fr", "ja", "nl", "ru", "zh"];
-
-let urlLang = window.location.href;
-console.log(`your language from URL is- ${urlLang}`);
-console.log(`your language (currentLocation) from OS is - ${currentLocation}`);
+console.log(`your language from URL is - ${urlLang}`);
+console.log(`your language from OS is - ${currentLocation}`);
 
 if (currentLocation === "es") {
   bannerLogoDescriptionItems.classList.add("--es");
@@ -81,11 +90,9 @@ if (currentLocation === "zh") {
 
 // ======================    get language pack
 async function getTranslation(lang) {
-  let langPack = await fetch(`./assets/localizations/${lang}.json`);
+  let langPack = await fetch(`../assets/localizations/${lang}.json`);
   let data = await langPack.json();
-  console.log(langPack);
-  // console.log(`currentLocation ${currentLocation} === lang ${lang} `);
-  // return data;
+  return data;
 }
 
 async function getTranslatePack() {
