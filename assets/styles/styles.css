@@ -4,11 +4,11 @@
 }
 @font-face {
   font-family: "SFProDisplay";
-  src: url("../../Assets/fonts/FontsFree-Net-SFProDisplay-Regular.ttf");
+  src: url("../../assets/fonts/FontsFree-Net-SFProDisplay-Regular.ttf");
 }
 @font-face {
   font-family: "Roboto", sans-serif;
-  src: url("../../Assets/fonts/fonts/Roboto-Regular.ttf");
+  src: url("../../assets/fonts/fonts/Roboto-Regular.ttf");
 }
 
 * {
