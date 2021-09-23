@@ -30,11 +30,16 @@ let bannerLogoDescriptionItems = document.querySelector(
 
 // ======================    get languages, change and add styles class
 // let currentLocation = "zh";
-let currentLocation = (window.navigator =
+let currentLocation =
   window.navigator.language ??
   window.navigator.systemLanguage ??
   window.navigator.userLanguage ??
-  "en");
+  "en";
+
+console.log("1 - " + window.navigator.language);
+console.log("2 - " + window.navigator.systemLanguage);
+console.log("3 - " + window.navigator.userLanguage);
+console.log("4 - " + window.navigator.geolocation.geolocationFailure);
 
 // let arrLang = ["en", "es", "fr", "ja", "nl", "ru", "zh"];
 
