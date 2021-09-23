@@ -34,21 +34,21 @@
 
       <div class="banner__logo">
         <div class="banner__logo-title">
-          <h1>Unlimited Access
-            to All Features</h1>
+          <h1 class="banner__logo-title-h1">Unlimited Access<br>to All Features</h1>
         </div>
 
-        <div class="banner__logo-desription">
+        <div class="banner__logo-desrciption">
           <div class="banner__logo-description-items">
-            <div class="banner__logo-description-item "><img class="logo-description-item-1"
-                src="./assets/svg/unlimitedDocs.svg" alt="unlimitedDocs"><span>Unlimited documents</span>
+            <div class="banner__logo-description-item"><img class="logo-description-item-1"
+                src="./assets/svg/unlimitedDocs.svg" alt="unlimitedDocs"><span class="item-1-title">Unlimited
+                documents</span>
             </div>
-            <div class="banner__logo-description-item "><img class="logo-description-item-2"
-                src="./assets/svg/export.svg" alt="unlimitedDocs"><span>Export to
+            <div class="banner__logo-description-item"><img class="logo-description-item-2"
+                src="./assets/svg/export.svg" alt="unlimitedDocs"><span class="item-2-title">Export to
                 clouds</span>
             </div>
-            <div class="banner__logo-description-item "><img class="logo-description-item-3"
-                src="./assets/svg/noAds.svg" alt="unlimitedDocs"><span>Text
+            <div class="banner__logo-description-item"><img class="logo-description-item-3" src="./assets/svg/noAds.svg"
+                alt="unlimitedDocs"><span class="item-3-title">Text
                 recognition (OCR)</span>
             </div>
           </div>
@@ -56,42 +56,47 @@
       </div>
 
       <div class="price-rate-inner">
-        <div class="price-rate__first price-rate__block">
-          <div class="price-rate__title">Monthly</div>
+
+        <div class="price-rate__first price-rate__block active">
+          <div class="price-rate__title" id="firstBannerTitle">Monthly</div>
           <div class="price-rate__price-big">$9.99</div>
-          <div class="price-rate__price-big-plus">per month</div>
-          <div class="price-rate__price-description">3 DAYS FREE!</div>
-          <div class="price-rate__price-little">$9.99 month</div>
+          <div class="price-rate__price-big-plus" id="firstBannerPlus">per month</div>
+          <div class="price-rate__price-description" id="firstBannerDescription">3 DAYS FREE!</div>
+          <div class="price-rate__price-little">$9.99 <span id="firstMonth">month</span></div>
         </div>
+
         <div class="price-rate__second price-rate__block">
-
-          <div class="price-rate__title">Annually</div>
+          <div class="price-rate__title" id="secondBannerTitle">Annually</div>
           <div class="price-rate__price-big">$19.99</div>
-          <div class="price-rate__price-big-plus">per year</div>
-          <div class="price-rate__price-description">most popular</div>
-          <div class="price-rate__price-little">$1.66 month</div>
+          <div class="price-rate__price-big-plus" id="secondBannerPlus">per year</div>
+          <div class="price-rate__price-description" id="secondBannerDescription">most popular</div>
+          <div class="price-rate__price-little">$1.66 <span id="secondMonth">month</span></div>
           <div class="price-rate__price-point">-83%</div>
-
         </div>
+
       </div>
 
-      <div class="button_submit">
-        <button class="btn">Continue</button>
-      </div>
+      <button class="button_submit">
+        <a class="btn-link" href="https://apple.com/">Continue</a>
+      </button>
 
       <div class="footer">
         <div class="footer__title">Auto-rewable. Cancel anytime</div>
         <div class="footer__content-inner">
-          <div class="footer__content">Terms of Use</div>
-          <div class="footer__content">Privacy Policy</div>
+          <a href="#">
+            <div class="footer__content" id="footer-left">Terms of Use</div>
+          </a>
+          <a href="#">
+            <div class="footer__content" id="footer-right">Privacy Policy</div>
+          </a>
         </div>
         <div class="footer__home-indicator"></div>
       </div>
-
     </div>
 
   </div>
 
+  <script src="./assets/js/main.js"></script>
 </body>
 
 </html>
