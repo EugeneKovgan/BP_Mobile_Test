@@ -79,7 +79,7 @@ if (currentLocation === "zh") {
 
 // ======================    get language pack
 async function getTranslation(locale) {
-  let langPack = await fetch(`../assets/localizations/${locale}.json`);
+  let langPack = await fetch(`../../assets/localizations/${locale}.json`);
   let data = await langPack.json();
   return data;
 }
