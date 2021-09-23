@@ -8,7 +8,7 @@
 }
 @font-face {
   font-family: "Roboto", sans-serif;
-  src: url("../../assets/fonts/fonts/Roboto-Regular.ttf");
+  src: url("../../assets/fonts/Roboto-Regular.ttf");
 }
 
 * {
@@ -226,23 +226,23 @@ a {
   top: 680px;
   left: 50%;
   width: 280px;
-  background: linear-gradient(270deg, #1987ff 0%, #19ccff 100%);
   border-radius: 30px;
   height: 54px;
   margin-right: -50%;
   transform: translate(-50%);
-}
-.button_submit:hover,
-.button_submit:active {
   background: linear-gradient(270deg, #1987ff 0%, #19ccff 60%);
 }
+.btn-link:hover,
+.btn-link:active {
+  background: linear-gradient(270deg, #1987ff 0%, #19ccff 100%);
+}
 .btn-link {
-  width: 280px;
-  height: 54px;
-  padding: 16px 104px;
+  padding: 15px 102px;
   border-radius: 30px;
   font-size: 17px;
+  margin-left: -2px;
 }
+
 .footer {
   text-align: center;
   margin-top: 585px;
@@ -308,7 +308,9 @@ a {
   font-size: 14px;
   line-height: 18px;
 }
-
+.btn-link.--ru {
+  padding: 15px 90px;
+}
 #secondBannerTitle.--fr {
   margin-left: -12px;
   font-size: 16px;
@@ -330,6 +332,10 @@ a {
 .banner__logo-description-items.--zh {
   margin-left: 110px;
   line-height: 29px;
+}
+
+.btn-link.--zh {
+  padding: 15px 120px;
 }
 
 /* .banner__logo-description-items.--nl {
