@@ -31,9 +31,9 @@ let bannerLogoDescriptionItems = document.querySelector(
 // ======================    get languages, change and add styles class
 // let currentLocation = "zh";
 let currentLocation =
-  window.navigator.language ??
-  window.navigator.systemLanguage ??
-  window.navigator.userLanguage ??
+  window.navigator.language.substr(0, 2) ??
+  window.navigator.systemLanguage.substr(0, 2) ??
+  window.navigator.userLanguage.substr(0, 2) ??
   "en";
 
 console.log("1 - " + window.navigator.language);
@@ -72,18 +72,20 @@ if (currentLocation === "ru") {
   bannerLogoDescriptionItems.classList.add("--ru");
   bannerLogoTitle.classList.add("--ru");
   firstBannerDescription.classList.add("--ru");
+  btnLink.classList.add("--ru");
 }
 if (currentLocation === "zh") {
   bannerLogoDescriptionItems.classList.add("--zh");
+  btnLink.classList.add("--zh");
 }
 
 // ======================    get language pack
-async function getTranslation(locale) {
-  let langPack = await fetch(`../../assets/localizations/${locale}.json`);
+async function getTranslation(lang) {
+  let langPack = await fetch(`../../assets/localizations/${lang}.json`);
   let data = await langPack.json();
   return data;
 }
-// let price = "9.99";
+
 async function getTranslatePack() {
   let change = await getTranslation(currentLocation);
   bannerLogoTitle.innerHTML = change["Unlimited Access<br>to All Features"];
