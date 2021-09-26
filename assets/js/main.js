@@ -90,9 +90,7 @@ if (currentLocation === "zh") {
 
 // ======================    get language pack
 async function getTranslation(lang) {
-  let langPack = await fetch(
-    `https://github.com/EugeneKovgan/BP_Mobile_Test/tree/main/assets/localizations/${lang}.json`
-  );
+  let langPack = await fetch(`../../assets/localizations/${lang}.json`);
   let data = await langPack.json();
   return data;
 }
