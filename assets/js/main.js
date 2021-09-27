@@ -90,13 +90,16 @@ if (currentLocation === "zh") {
 
 // ======================    get language pack
 async function getTranslation(lang) {
-  let langPack = await fetch(`../../assets/localizations/${lang}.json`);
+  let langPack = await fetch(`./assets/localizations/${lang}.json`);
+  console.log(langPack);
   let data = await langPack.json();
+  console.log(data);
   return data;
 }
 
 async function getTranslatePack() {
   let change = await getTranslation(currentLocation);
+
   bannerLogoTitle.innerHTML = change["Unlimited Access<br>to All Features"];
   item1Title.innerHTML = change["Unlimited documents"];
   item2Title.innerHTML = change["Count mode"];
