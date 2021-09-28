@@ -19,27 +19,6 @@ let secondBannerDescription = document.querySelector(
   "#secondBannerDescription"
 );
 
-let changedHTML = {
-  bannerLogoTitle: ["Unlimited Access<br>to All Features"],
-  item1Title: ["Unlimited documents"],
-  // item2Title: ["Count mode"],
-  // item3Title: ["Text recognition (OCR)"],
-  // firstBannerTitle: ["Monthly"],
-  // firstBannerPlus: ["<strong>{{price}}</strong><br>per month"],
-  // firstBannerDescription: ["3 DAYS FREE"],
-  // firstMonth: ["{{price}}/month"],
-  // secondMonth: ["{{price}}/month"],
-  // secondBannerTitle: ["Annually"],
-  // PricePoint: ["-83%"],
-  // secondBannerPlus: ["<strong>{{price}}</strong><br>per year"],
-  // secondBannerDescription: ["MOST POPULAR"],
-  // btnLink: ["Continue"],
-  // footerTitle: ["Auto-renewable. Cancel anytime."],
-  // footerLeft: ["Terms of Use"],
-  // bannerHeaderItemDescriptions: ["Restore"],
-  // footerRight: ["Privacy Policy"],
-};
-
 let PricePoint = document.querySelector(".price-rate__price-point");
 let secondMonth = document.querySelector("#secondMonth");
 let footerTitle = document.querySelector(".footer__title");
@@ -48,6 +27,26 @@ let footerRight = document.querySelector("#footer-right");
 let bannerLogoDescriptionItems = document.querySelector(
   ".banner__logo-description-items"
 );
+
+let changedHTML = {
+  "Unlimited Access<br>to All Features": bannerLogoTitle,
+  "Unlimited documents": item1Title,
+  "Count mode": item2Title,
+  "Text recognition (OCR)": item3Title,
+  Monthly: firstBannerTitle,
+  "<strong>{{price}}</strong><br>per month": firstBannerPlus,
+  "3 DAYS FREE": firstBannerDescription,
+  "{{price}}/month": firstMonth,
+  Annually: secondBannerTitle,
+  "-83%": "price-rate__price-point",
+  "<strong>{{price}}</strong><br>per year": secondBannerPlus,
+  "MOST POPULAR": secondBannerDescription,
+  Continue: "btn-link",
+  "Auto-renewable. Cancel anytime.": footerTitle,
+  "Terms of Use": footerLeft,
+  Restore: bannerHeaderItemDescriptions,
+  "Privacy Policy": footerRight,
+};
 
 // ======================    get languages, change and add styles class
 
@@ -59,13 +58,6 @@ let urlLang;
 if (getLangFromUrl.length > 1) {
   urlLang = getLangFromUrl[getLangFromUrl.length - 1].slice(1);
 }
-
-// ======================    possible languages from OS
-// let possibleLanguages = window.navigator.languages
-//   .join(", ")
-//   .toLocaleLowerCase();
-// console.log(`possible languages from OS - ${possibleLanguages}`);
-// ======================
 
 let currentLocation =
   urlLang ??
@@ -113,40 +105,48 @@ if (currentLocation === "zh") {
 async function getTranslation(lang) {
   let langPack = await fetch(`./assets/localizations/${lang}.json`);
   let data = await langPack.json();
-  console.log(data);
+  // console.log(data);
   return data;
 }
 
 async function getTranslatePack() {
   let change = await getTranslation(currentLocation);
-  // for (let key in changedHTML) {
-  //   console.log("changedHTML[key] = " + changedHTML[key]);
-  //   console.log("key = " + key);
-  //   console.log(changedHTML[key]);
-  //   changedHTML[key].innerHTML = change[changedHTML[key]];
-  //   console.log(changedHTML[key]);
-  // }
 
-  bannerLogoTitle.innerHTML = change["Unlimited Access<br>to All Features"];
-  item1Title.innerHTML = change["Unlimited documents"];
-  item2Title.innerHTML = change["Count mode"];
-  item3Title.innerHTML = change["Text recognition (OCR)"];
-  firstBannerTitle.innerHTML = change["Monthly"];
-  firstBannerPlus.innerHTML =
-    change["<strong>{{price}}</strong><br>per month"].slice(30);
-  firstBannerDescription.innerHTML = change["3 DAYS FREE"];
-  firstMonth.innerHTML = change["{{price}}/month"].slice(9);
-  secondMonth.innerHTML = change["{{price}}/month"].slice(9);
-  secondBannerTitle.innerHTML = change["Annually"];
-  PricePoint.innerHTML = change["-83%"];
-  secondBannerPlus.innerHTML =
-    change["<strong>{{price}}</strong><br>per year"].slice(30);
-  secondBannerDescription.innerHTML = change["MOST POPULAR"];
-  btnLink.innerHTML = change["Continue"];
-  footerTitle.innerHTML = change["Auto-renewable. Cancel anytime."];
-  footerLeft.innerHTML = change["Terms of Use"];
-  bannerHeaderItemDescriptions.innerHTML = change["Restore"];
-  footerRight.innerHTML = change["Privacy Policy"];
+  for (let key in change) {
+    let changedElem = changedHTML[key];
+
+    if (key == "<strong>{{price}}</strong><br>per month") {
+      changedElem.innerHTML = change[key].slice(30);
+    } else if (key === "{{price}}/month") {
+      firstMonth.innerHTML = change[key].slice(9);
+      secondMonth.innerHTML = change[key].slice(9);
+    } else if (key === "<strong>{{price}}</strong><br>per year") {
+      changedElem.innerHTML = change[key].slice(30);
+    } else {
+      changedElem.innerHTML = change[key];
+    }
+  }
+
+  //  bannerLogoTitle.innerHTML = change["Unlimited Access<br>to All Features"];
+  //  item1Title.innerHTML = change["Unlimited documents"];
+  //  item2Title.innerHTML = change["Count mode"];
+  //  item3Title.innerHTML = change["Text recognition (OCR)"];
+  //  firstBannerTitle.innerHTML = change["Monthly"];
+  //  firstBannerPlus.innerHTML =
+  //    change["<strong>{{price}}</strong><br>per month"].slice(30);
+  //  firstBannerDescription.innerHTML = change["3 DAYS FREE"];
+  //  firstMonth.innerHTML = change["{{price}}/month"].slice(9);
+  //  secondMonth.innerHTML = change["{{price}}/month"].slice(9);
+  //  secondBannerTitle.innerHTML = change["Annually"];
+  //  PricePoint.innerHTML = change["-83%"];
+  //  secondBannerPlus.innerHTML =
+  //    change["<strong>{{price}}</strong><br>per year"].slice(30);
+  //  secondBannerDescription.innerHTML = change["MOST POPULAR"];
+  //  btnLink.innerHTML = change["Continue"];
+  //  footerTitle.innerHTML = change["Auto-renewable. Cancel anytime."];
+  //  footerLeft.innerHTML = change["Terms of Use"];
+  //  bannerHeaderItemDescriptions.innerHTML = change["Restore"];
+  //  footerRight.innerHTML = change["Privacy Policy"];
 }
 
 // ======================    changes of tariff plan
