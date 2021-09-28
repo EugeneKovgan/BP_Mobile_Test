@@ -19,6 +19,27 @@ let secondBannerDescription = document.querySelector(
   "#secondBannerDescription"
 );
 
+let changedHTML = {
+  bannerLogoTitle: ["Unlimited Access<br>to All Features"],
+  item1Title: ["Unlimited documents"],
+  // item2Title: ["Count mode"],
+  // item3Title: ["Text recognition (OCR)"],
+  // firstBannerTitle: ["Monthly"],
+  // firstBannerPlus: ["<strong>{{price}}</strong><br>per month"],
+  // firstBannerDescription: ["3 DAYS FREE"],
+  // firstMonth: ["{{price}}/month"],
+  // secondMonth: ["{{price}}/month"],
+  // secondBannerTitle: ["Annually"],
+  // PricePoint: ["-83%"],
+  // secondBannerPlus: ["<strong>{{price}}</strong><br>per year"],
+  // secondBannerDescription: ["MOST POPULAR"],
+  // btnLink: ["Continue"],
+  // footerTitle: ["Auto-renewable. Cancel anytime."],
+  // footerLeft: ["Terms of Use"],
+  // bannerHeaderItemDescriptions: ["Restore"],
+  // footerRight: ["Privacy Policy"],
+};
+
 let PricePoint = document.querySelector(".price-rate__price-point");
 let secondMonth = document.querySelector("#secondMonth");
 let footerTitle = document.querySelector(".footer__title");
@@ -91,7 +112,6 @@ if (currentLocation === "zh") {
 // ======================    get language pack
 async function getTranslation(lang) {
   let langPack = await fetch(`./assets/localizations/${lang}.json`);
-  console.log(langPack);
   let data = await langPack.json();
   console.log(data);
   return data;
@@ -99,6 +119,13 @@ async function getTranslation(lang) {
 
 async function getTranslatePack() {
   let change = await getTranslation(currentLocation);
+  // for (let key in changedHTML) {
+  //   console.log("changedHTML[key] = " + changedHTML[key]);
+  //   console.log("key = " + key);
+  //   console.log(changedHTML[key]);
+  //   changedHTML[key].innerHTML = change[changedHTML[key]];
+  //   console.log(changedHTML[key]);
+  // }
 
   bannerLogoTitle.innerHTML = change["Unlimited Access<br>to All Features"];
   item1Title.innerHTML = change["Unlimited documents"];
